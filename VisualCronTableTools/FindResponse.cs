@@ -21,7 +21,7 @@ namespace VisualCronTableTools
 		public bool Success { get; set; }
 		public string Message { get; set; }
 		public List<Dictionary<string, string>> Rows { get; set; } // Key is location (A2, G41, etc) Value is cell value
-		public Dictionary<string, string> Cells { get; set; }
+        public Dictionary<string, string> Cells { get; set; }
 	}
 }
 
