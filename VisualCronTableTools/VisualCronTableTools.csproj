@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ClosedXML" />
+    <None Remove="Tools\" />
+    <None Remove="Tools\XLS\" />
+    <None Remove="Tools\XLSX\" />
+    <None Remove="Tools\CSV\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.97.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\" />
+    <Folder Include="Tools\XLS\" />
+    <Folder Include="Tools\XLSX\" />
+    <Folder Include="Tools\CSV\" />
+  </ItemGroup>
+</Project>
