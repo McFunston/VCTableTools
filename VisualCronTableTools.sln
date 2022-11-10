@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualCronTableTools", "VisualCronTableTools\VisualCronTableTools.csproj", "{BDEFE77C-8A37-4368-B7A9-DE26131F8B76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualCronTableToolsTests", "VisualCronTableToolsTests\VisualCronTableToolsTests.csproj", "{D0B4A9ED-29A9-493B-860D-2A92504ADEEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BDEFE77C-8A37-4368-B7A9-DE26131F8B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDEFE77C-8A37-4368-B7A9-DE26131F8B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDEFE77C-8A37-4368-B7A9-DE26131F8B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B4A9ED-29A9-493B-860D-2A92504ADEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B4A9ED-29A9-493B-860D-2A92504ADEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B4A9ED-29A9-493B-860D-2A92504ADEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B4A9ED-29A9-493B-860D-2A92504ADEEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

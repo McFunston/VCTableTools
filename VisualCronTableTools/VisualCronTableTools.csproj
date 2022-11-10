@@ -10,6 +10,7 @@
     <None Remove="Tools\XLS\" />
     <None Remove="Tools\XLSX\" />
     <None Remove="Tools\CSV\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.97.0" />
@@ -19,5 +20,6 @@
     <Folder Include="Tools\XLS\" />
     <Folder Include="Tools\XLSX\" />
     <Folder Include="Tools\CSV\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
