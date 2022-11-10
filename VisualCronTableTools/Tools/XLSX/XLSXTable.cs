@@ -16,6 +16,7 @@ namespace VisualCronTableTools.Tools.XLSX
         public XLSXTable(string path, string sheetName)
         {
             Worksheet = GetWorksheet(path, sheetName);
+            tableListDictionary = GetTableListDictionary(Worksheet);
         }
         
         private TableListDictionary GetTableListDictionary(IXLWorksheet sheet)

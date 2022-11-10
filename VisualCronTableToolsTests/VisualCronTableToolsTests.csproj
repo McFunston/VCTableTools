@@ -18,4 +18,21 @@
   <ItemGroup>
     <ProjectReference Include="..\VisualCronTableTools\VisualCronTableTools.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="TestData\" />
+    <None Remove="TestData\Jobs.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="TestData\Jobs.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\Jobs.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
