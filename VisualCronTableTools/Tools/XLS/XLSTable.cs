@@ -33,7 +33,7 @@ namespace VisualCronTableTools.Tools.XLS
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             var dataTable = ReadExcel(path, sheetName);
-
+            tableListDictionary = GetTableListDictionary(dataTable);
         }
 
         private TableListDictionary GetTableListDictionary(DataTable sheet)
@@ -63,7 +63,6 @@ namespace VisualCronTableTools.Tools.XLS
                     tableCell.ColumnLetter = columnLetters[i];
                     tableCell.ColumnHeader = columnNames[i];
                     tableCell.Value = sheet.Rows[r].ItemArray[i].ToString();
-                    //rowDict.Add(columnLetters[i], sheet.Row(r).Cell(i + 1).Value.ToString());
                     rowDict.Add(columnLetters[i], tableCell);
                 }
                 tableDict.Add(rowDict);
