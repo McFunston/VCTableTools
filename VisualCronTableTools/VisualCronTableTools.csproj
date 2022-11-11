@@ -11,9 +11,13 @@
     <None Remove="Tools\XLSX\" />
     <None Remove="Tools\CSV\" />
     <None Remove="Models\" />
+    <None Remove="ExcelDataReader" />
+    <None Remove="ExcelDataReader.DataSet" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.97.0" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tools\" />
