@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using VisualCronTableTools.Models;
 
 namespace VisualCronTableTools
 {
@@ -11,7 +12,7 @@ namespace VisualCronTableTools
 			Rows: A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
 			Cells: A dictionary of the specifically found cells */
 
-		public FindResponse(bool success, string message, List<Dictionary<string, string>> rows, Dictionary<string, string> cells)
+		public FindResponse(bool success, string message, List<Dictionary<string, string>> rows, Dictionary<string, TableCell> cells)
 		{
 			Success = success;
 			Message = message;
@@ -21,7 +22,7 @@ namespace VisualCronTableTools
 		public bool Success { get; set; }
 		public string Message { get; set; }
 		public List<Dictionary<string, string>> Rows { get; set; } // Key is location (A2, G41, etc) Value is cell value
-        public Dictionary<string, string> Cells { get; set; }
+        public Dictionary<string, TableCell> Cells { get; set; }
 	}
 }
 
