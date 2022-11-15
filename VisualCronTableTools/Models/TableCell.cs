@@ -13,6 +13,15 @@ namespace VisualCronTableTools.Models
         public TableCell()
 		{
 		}
+
+		public TableCell(string value, string columnLetter, int columnNumber, int rowNumber, string columnHeader)
+		{
+			Value = value;
+			ColumnLetter = columnLetter;
+			ColumnNumber = columnNumber;
+			RowNumber = rowNumber;
+			ColumnHeader = columnHeader;			
+		}
 	}
 }
 

@@ -24,7 +24,21 @@ namespace VisualCronTableTools.Models
 
         public FindResponse FindAll(string searchTerm, string column, MatcherDelegate matcher)
         {
-            throw new NotImplementedException();
+            FindResponse findResponse = new FindResponse();
+
+            foreach (var row in ListDictionary)
+            {
+                //if (row[column].Value == searchTerm)
+                if (matcher(searchTerm, row[column].Value))
+                {
+                    findResponse.Success = true;
+                    findResponse.Rows.Add(row);
+                    findResponse.Addresses.Add(row[column].ExcelAddress);
+                }
+            };
+            string message = findResponse.Rows.ListDictionary.Count.ToString() + " match(es) found.";
+            findResponse.Message = message;
+            return findResponse;
         }
 
         public FindResponse FindFirst(string searchTerm, string column, MatcherDelegate matcher)

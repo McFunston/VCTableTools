@@ -12,17 +12,23 @@ namespace VisualCronTableTools
 			Rows: A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
 			Cells: A dictionary of the specifically found cells */
 
-		public FindResponse(bool success, string message, List<Dictionary<string, string>> rows, Dictionary<string, TableCell> cells)
+		public FindResponse()
+		{
+			Rows = new TableListDictionary();
+			Addresses = new List<string>();
+		}
+
+		public FindResponse(bool success, string message, TableListDictionary rows, List<string> addresses)
 		{
 			Success = success;
 			Message = message;
 			Rows = rows;
-			Cells = cells;
+			Addresses = addresses;
 		}
 		public bool Success { get; set; }
 		public string Message { get; set; }
-		public List<Dictionary<string, string>> Rows { get; set; } // Key is location (A2, G41, etc) Value is cell value
-        public Dictionary<string, TableCell> Cells { get; set; }
+		public TableListDictionary Rows { get; set; } // TableListDictionary of all rows with found cells
+        public List<string> Addresses { get; set; }
 	}
 }
 

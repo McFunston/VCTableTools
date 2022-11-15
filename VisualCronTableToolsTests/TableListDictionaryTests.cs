@@ -1,4 +1,5 @@
 ﻿using VisualCronTableTools.Models;
+using VisualCronTableTools.Tools;
 
 namespace VisualCronTableToolsTests;
 
@@ -8,24 +9,51 @@ public class TableListDictionaryTests
     public Dictionary<string, TableCell> MakeSampleRow()
     {        
         Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
-        TableCell tableCell1 = new TableCell();
-        TableCell tableCell2 = new TableCell();
-
-        tableCell1.ColumnHeader = "City";
-        tableCell1.ColumnLetter = "A";
-        tableCell1.RowNumber = 2;
-        tableCell1.ColumnNumber = 1;
-        tableCell1.Value = "Ottawa";
-
-        tableCell2.ColumnHeader = "Population";
-        tableCell2.ColumnLetter = "B";
-        tableCell2.RowNumber = 2;
-        tableCell2.ColumnNumber = 2;
-        tableCell2.Value = "994837";
+        TableCell tableCell1 = new TableCell("Ottawa", "A", 1, 2, "City");
+        TableCell tableCell2 = new TableCell("994837", "B", 2, 2, "Population");
+        TableCell tableCell3 = new TableCell("City", "C", 3, 2, "Municipality Type");
 
         row1.Add("A", tableCell1);
         row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
         return row1;
+    }
+
+    public Dictionary<string, TableCell> MakeSampleRow2()
+    {
+        Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
+        TableCell tableCell1 = new TableCell("Toronto", "A", 1, 3, "City");
+        TableCell tableCell2 = new TableCell("2930000", "B", 2, 3, "Population");
+        TableCell tableCell3 = new TableCell("City", "C", 3, 3, "Municipality Type");
+
+        row1.Add("A", tableCell1);
+        row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
+        return row1;
+    }
+
+    public Dictionary<string, TableCell> MakeSampleRow3()
+    {
+        Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
+        TableCell tableCell1 = new TableCell("Lanark", "A", 1, 4, "City");
+        TableCell tableCell2 = new TableCell("800", "B", 2, 4, "Population");
+        TableCell tableCell3 = new TableCell("Village", "C", 3, 4, "Municipality Type");
+
+        row1.Add("A", tableCell1);
+        row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
+        return row1;
+    }
+
+    public TableListDictionary MakeSampleTableListDictionary()
+    {
+        TableListDictionary tableListDictionary = new TableListDictionary();
+
+        tableListDictionary.Add(MakeSampleRow());
+        tableListDictionary.Add(MakeSampleRow2());
+        tableListDictionary.Add(MakeSampleRow3());
+
+        return tableListDictionary;
     }
 
     [TestMethod]
@@ -33,15 +61,28 @@ public class TableListDictionaryTests
     {
         //Arrange
         TableListDictionary tableListDictionary = new TableListDictionary();
-        Dictionary<string, TableCell> row;
-        TableCell tableCell1 = new TableCell();
-        row = MakeSampleRow();
+        Dictionary<string, TableCell> row = MakeSampleRow(); 
+        //TableCell tableCell1 = new TableCell();        
 
         //Act
         tableListDictionary.Add(row);
 
         //Assert
         Assert.IsTrue(tableListDictionary.ListDictionary[0]["A"].Value == "Ottawa");
+    }
+
+    [TestMethod]
+    public void TestFindAll()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary=MakeSampleTableListDictionary();
+
+        //Act
+        var findResult = tableListDictionary.FindAll("City", "C", Matcher.findEquals);
+
+        //Assert
+        Assert.IsTrue(findResult.Success = true);
+
     }
 }
 
