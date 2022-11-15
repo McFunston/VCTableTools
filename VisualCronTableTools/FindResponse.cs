@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using VisualCronTableTools.Models;
 
 namespace VisualCronTableTools
 {
-	public class FindResponse
-	{
+    [Serializable()]
+    public class FindResponse: ISerializable
+    {
         /* A FindResponse will consist of the following properties
 			Success: True if found, False if not
 			Message: A string describing the findings ("Two items found")
@@ -29,6 +31,14 @@ namespace VisualCronTableTools
 		public string Message { get; set; }
 		public TableListDictionary Rows { get; set; } // TableListDictionary of all rows with found cells
         public List<string> Addresses { get; set; }
-	}
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+			info.AddValue("Success", Success);
+			info.AddValue("Message", Message);
+			info.AddValue("Rows", Rows);
+			info.AddValue("Addresses", Addresses);
+        }
+    }
 }
 

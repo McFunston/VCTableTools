@@ -3,7 +3,8 @@ using System.Runtime.Serialization;
 
 namespace VisualCronTableTools.Models
 {
-	public class TableCell: ISerializable
+    [Serializable()]
+    public class TableCell: ISerializable
     {
 		public string Value { get; set; }
 		public string ColumnLetter { get; set; }

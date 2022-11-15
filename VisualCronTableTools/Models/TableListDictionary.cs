@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using VisualCronTableTools.Tools;
 
 namespace VisualCronTableTools.Models
 {
-	public class TableListDictionary: ITableFinder
+    [Serializable()]
+    public class TableListDictionary: ITableFinder, ISerializable
     {
 		// A list of dictionaries where the list represents the rows, the dictionary keys are the column letters (A, B, C, etc.) and the values are the cell values as strings.
 
@@ -64,6 +66,11 @@ namespace VisualCronTableTools.Models
         public FindResponse FindFirstBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
         {
             throw new NotImplementedException();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("ListDictionary", ListDictionary);
         }
     }
 }
