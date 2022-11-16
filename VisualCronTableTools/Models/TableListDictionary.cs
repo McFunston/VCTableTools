@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using VisualCronTableTools.Tools;
 
 namespace VisualCronTableTools.Models
 {
-    [Serializable()]
-    public class TableListDictionary: ITableFinder, ISerializable
+    
+    public class TableListDictionary: ITableFinder
     {
 		// A list of dictionaries where the list represents the rows, the dictionary keys are the column letters (A, B, C, etc.) and the values are the cell values as strings.
 
@@ -34,11 +35,13 @@ namespace VisualCronTableTools.Models
                 if (matcher(searchTerm, row[column].Value))
                 {
                     findResponse.Success = true;
-                    findResponse.Rows.Add(row);
+                    List<TableCell> tableCells = row.Values.ToList();
+
+                    findResponse.Rows.Add(tableCells);
                     findResponse.Addresses.Add(row[column].ExcelAddress);
                 }
             };
-            string message = findResponse.Rows.ListDictionary.Count.ToString() + " match(es) found.";
+            string message = findResponse.Rows.Count.ToString() + " match(es) found.";
             findResponse.Message = message;
             return findResponse;
         }
@@ -68,10 +71,7 @@ namespace VisualCronTableTools.Models
             throw new NotImplementedException();
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("ListDictionary", ListDictionary);
-        }
+
     }
 }
 

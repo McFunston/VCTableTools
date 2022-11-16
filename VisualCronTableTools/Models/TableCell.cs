@@ -11,7 +11,7 @@ namespace VisualCronTableTools.Models
 		public int ColumnNumber { get; set; }
 		public int RowNumber { get; set; }
 		public string ColumnHeader { get; set; }
-		public string ExcelAddress { get { return ColumnLetter + RowNumber; } } //A2, B17, etc.                                                                                
+		public string ExcelAddress { get { return ColumnLetter + RowNumber; } set { } } //A2, B17, etc.                                                                                
 
         public TableCell()
 		{
@@ -32,7 +32,7 @@ namespace VisualCronTableTools.Models
 			info.AddValue("ColumnLetter", ColumnLetter);
 			info.AddValue("ColumnNumber", ColumnNumber);
 			info.AddValue("RowNumber", RowNumber);
-			info.AddValue("ExcelAddress", ExcelAddress);
+			//info.AddValue("ExcelAddress", ExcelAddress);
         }
     }
 }

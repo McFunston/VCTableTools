@@ -1,4 +1,7 @@
-﻿using VisualCronTableTools.Models;
+﻿using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using VisualCronTableTools;
+using VisualCronTableTools.Models;
 using VisualCronTableTools.Tools;
 
 namespace VisualCronTableToolsTests;
@@ -82,7 +85,26 @@ public class TableListDictionaryTests
 
         //Assert
         Assert.IsTrue(findResult.Success = true);
-
+        
+    }
+    [TestMethod]
+    public void TestSerialize()
+    {
+        //Arrange
+        MemoryStream mem = new MemoryStream();
+        XmlSerializer serializer = new XmlSerializer(typeof(FindResponse));        
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+        FindResponse findResponse = tableListDictionary.FindAll("City", "C", Matcher.findEquals);
+        
+        //Act
+        try
+        {
+            serializer.Serialize(mem, findResponse);
+        }
+        catch (Exception ex)
+        {
+            Assert.Fail(ex.Message);
+        }
     }
 }
 

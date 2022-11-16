@@ -16,11 +16,11 @@ namespace VisualCronTableTools
 
 		public FindResponse()
 		{
-			Rows = new TableListDictionary();
+			Rows = new List<List<TableCell>>();
 			Addresses = new List<string>();
 		}
 
-		public FindResponse(bool success, string message, TableListDictionary rows, List<string> addresses)
+		public FindResponse(bool success, string message, List<List<TableCell>> rows, List<string> addresses)
 		{
 			Success = success;
 			Message = message;
@@ -29,7 +29,7 @@ namespace VisualCronTableTools
 		}
 		public bool Success { get; set; }
 		public string Message { get; set; }
-		public TableListDictionary Rows { get; set; } // TableListDictionary of all rows with found cells
+		public List<List<TableCell>> Rows { get; set; } 
         public List<string> Addresses { get; set; }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
