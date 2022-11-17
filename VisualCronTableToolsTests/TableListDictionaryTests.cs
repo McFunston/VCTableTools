@@ -203,6 +203,24 @@ public class TableListDictionaryTests
     }
 
     [TestMethod]
+    public void FindFirstBoth()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+        string expected = "A4";
+        int expectedCount = 1;
+
+        //Act
+        var findResult = tableListDictionary.FindFirstBoth("Lanark", "A", "Village", "C", Matcher.findEquals);
+        string actual = findResult.Addresses[0];
+        int actualCount = findResult.Addresses.Count();
+
+        //Assert
+        Assert.AreEqual(actual, expected);
+        Assert.AreEqual(expectedCount, actualCount);
+    }
+
+    [TestMethod]
     public void TestSerialize()
     {
         //Arrange
