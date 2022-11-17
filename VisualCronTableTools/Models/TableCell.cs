@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace VisualCronTableTools.Models
 {
-    [Serializable()]
-    public class TableCell: ISerializable
+
+    public class TableCell
     {
-		public string Value { get; set; }
-		public string ColumnLetter { get; set; }
-		public int ColumnNumber { get; set; }
-		public int RowNumber { get; set; }
-		public string ColumnHeader { get; set; }
-		public string ExcelAddress { get { return ColumnLetter + RowNumber; } set { } } //A2, B17, etc.                                                                                
+        [XmlElement(ElementName = "Cell Content")]
+        public string Value { get; set; }
+        [XmlElement(ElementName = "Column Letter")]
+        public string ColumnLetter { get; set; }
+        [XmlElement(ElementName = "Column Number")]
+        public int ColumnNumber { get; set; }
+        [XmlElement(ElementName = "Row Number")]
+        public int RowNumber { get; set; }
+        [XmlElement(ElementName = "Column Header")]
+        public string ColumnHeader { get; set; }
+        [XmlElement(ElementName = "Excel Address")]
+        public string ExcelAddress { get { return ColumnLetter + RowNumber; } set { } } //A2, B17, etc.                                                                                
 
         public TableCell()
 		{
@@ -25,15 +32,6 @@ namespace VisualCronTableTools.Models
 			RowNumber = rowNumber;
 			ColumnHeader = columnHeader;			
 		}
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Value", Value);
-			info.AddValue("ColumnLetter", ColumnLetter);
-			info.AddValue("ColumnNumber", ColumnNumber);
-			info.AddValue("RowNumber", RowNumber);
-			//info.AddValue("ExcelAddress", ExcelAddress);
-        }
     }
 }
 

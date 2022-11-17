@@ -93,14 +93,14 @@ public class TableListDictionaryTests
     {
         //Arrange
         TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
-        List<string> expected = new List<string>();
-        expected.Add("C2");
+        string expected = "C2";
 
         //Act
         var findResult = tableListDictionary.FindFirst("City", "C", Matcher.findEquals);
+        string actual = findResult.Addresses[0];
 
         //Assert
-        Assert.AreEqual(findResult.Addresses[0], expected[0]);
+        Assert.AreEqual(actual, expected);
     }
 
     [TestMethod]
