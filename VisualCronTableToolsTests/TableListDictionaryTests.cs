@@ -48,6 +48,19 @@ public class TableListDictionaryTests
         return row1;
     }
 
+    public Dictionary<string, TableCell> MakeSampleRow4()
+    {
+        Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
+        TableCell tableCell1 = new TableCell("Perth", "A", 1, 5, "City");
+        TableCell tableCell2 = new TableCell("5930", "B", 2, 5, "Population");
+        TableCell tableCell3 = new TableCell("", "C", 3, 5, "Municipality Type");
+
+        row1.Add("A", tableCell1);
+        row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
+        return row1;
+    }
+
     public TableListDictionary MakeSampleTableListDictionary()
     {
         TableListDictionary tableListDictionary = new TableListDictionary();
@@ -55,6 +68,7 @@ public class TableListDictionaryTests
         tableListDictionary.Add(MakeSampleRow());
         tableListDictionary.Add(MakeSampleRow2());
         tableListDictionary.Add(MakeSampleRow3());
+        tableListDictionary.Add(MakeSampleRow4());
 
         return tableListDictionary;
     }
@@ -97,6 +111,21 @@ public class TableListDictionaryTests
 
         //Act
         var findResult = tableListDictionary.FindFirst("City", "C", Matcher.findEquals);
+        string actual = findResult.Addresses[0];
+
+        //Assert
+        Assert.AreEqual(actual, expected);
+    }
+
+    [TestMethod]
+    public void FindAllWithout()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+        string expected = "A5";
+
+        //Act
+        var findResult = tableListDictionary.FindAllWithout("Perth", "A", "C", Matcher.findEquals);
         string actual = findResult.Addresses[0];
 
         //Assert

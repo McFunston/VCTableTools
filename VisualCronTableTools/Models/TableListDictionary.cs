@@ -69,7 +69,23 @@ namespace VisualCronTableTools.Models
 
         public FindResponse FindAllWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
         {
-            throw new NotImplementedException();
+            FindResponse findResponse = new FindResponse();
+
+            foreach (var row in ListDictionary)
+            {
+                //if (row[column].Value == searchTerm)
+                if (matcher(searchTerm, row[column].Value) && row[killColumn].Value=="")
+                {
+                    findResponse.Success = true;
+                    List<TableCell> tableCells = row.Values.ToList();
+
+                    findResponse.Rows.Add(tableCells);
+                    findResponse.Addresses.Add(row[column].ExcelAddress);
+                }
+            };
+            string message = findResponse.Rows.Count.ToString() + " match(es) found.";
+            findResponse.Message = message;
+            return findResponse;
         }
 
         public FindResponse FindFirstWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
