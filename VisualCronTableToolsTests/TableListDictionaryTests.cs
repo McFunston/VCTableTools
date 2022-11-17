@@ -65,7 +65,7 @@ public class TableListDictionaryTests
     {
         Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
         TableCell tableCell1 = new TableCell("Carleton Place", "A", 1, 6, "City");
-        TableCell tableCell2 = new TableCell("11901", "B", 2, 6, "Population");
+        TableCell tableCell2 = new TableCell("5930", "B", 2, 6, "Population");
         TableCell tableCell3 = new TableCell("", "C", 3, 6, "Municipality Type");
 
         row1.Add("A", tableCell1);
@@ -139,14 +139,35 @@ public class TableListDictionaryTests
     {
         //Arrange
         TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
-        string expected = "A5";
+        string expected = "B5";
+        int expectedCount = 2;
 
         //Act
-        var findResult = tableListDictionary.FindAllWithout("Perth", "A", "C", Matcher.findEquals);
+        var findResult = tableListDictionary.FindAllWithout("5930", "B", "C", Matcher.findEquals);
         string actual = findResult.Addresses[0];
+        int actualCount = findResult.Addresses.Count();
 
         //Assert
         Assert.AreEqual(actual, expected);
+        Assert.AreEqual(expectedCount, actualCount);
+    }
+
+    [TestMethod]
+    public void FindFirstWithout()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+        string expected = "B5";
+        int expectedCount = 1;
+
+        //Act
+        var findResult = tableListDictionary.FindFirstWithout("5930", "B", "C", Matcher.findEquals);
+        string actual = findResult.Addresses[0];
+        int actualCount = findResult.Addresses.Count();
+
+        //Assert
+        Assert.AreEqual(actual, expected);
+        Assert.AreEqual(expectedCount, actualCount);
     }
 
     [TestMethod]
