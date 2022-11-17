@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using VisualCronTableTools.Models;
 
 namespace VisualCronTableTools
 {
     [Serializable()]
-    public class FindResponse: ISerializable
+    public class FindResponse
     {
         /* A FindResponse will consist of the following properties
 			Success: True if found, False if not
@@ -27,18 +28,19 @@ namespace VisualCronTableTools
 			Rows = rows;
 			Addresses = addresses;
 		}
-		public bool Success { get; set; }
-		public string Message { get; set; }
-		public List<List<TableCell>> Rows { get; set; } 
+		public bool Success { get; set; }        
+        public string Message { get; set; }
+        [XmlArrayItem("Row")]
+        public List<List<TableCell>> Rows { get; set; }
+        [XmlArrayItem("Address")]
         public List<string> Addresses { get; set; }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-			info.AddValue("Success", Success);
-			info.AddValue("Message", Message);
-			info.AddValue("Rows", Rows);
-			info.AddValue("Addresses", Addresses);
-        }
+        public override string ToString()
+		{
+			string addressesString = string.Join(",", Addresses);
+			return addressesString;
+		}
+
     }
 }
 

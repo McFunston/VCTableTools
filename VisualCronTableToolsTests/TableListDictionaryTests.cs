@@ -87,6 +87,7 @@ public class TableListDictionaryTests
         Assert.IsTrue(findResult.Success = true);
         
     }
+
     [TestMethod]
     public void TestSerialize()
     {
@@ -99,12 +100,25 @@ public class TableListDictionaryTests
         //Act
         try
         {
-            serializer.Serialize(mem, findResponse);
+            serializer.Serialize(mem, findResponse);            
         }
         catch (Exception ex)
         {
             Assert.Fail(ex.Message);
         }
+    }
+
+    [TestMethod]
+    public void TestTableCellToString()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+
+        //Act
+        var findResult = tableListDictionary.FindAll("City", "C", Matcher.findEquals);
+
+        //Assert
+        Assert.AreEqual(findResult.ToString(), "C2,C3");
     }
 }
 
