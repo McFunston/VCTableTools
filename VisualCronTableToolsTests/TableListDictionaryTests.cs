@@ -61,6 +61,19 @@ public class TableListDictionaryTests
         return row1;
     }
 
+    public Dictionary<string, TableCell> MakeSampleRow5()
+    {
+        Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
+        TableCell tableCell1 = new TableCell("Carleton Place", "A", 1, 6, "City");
+        TableCell tableCell2 = new TableCell("11901", "B", 2, 6, "Population");
+        TableCell tableCell3 = new TableCell("", "C", 3, 6, "Municipality Type");
+
+        row1.Add("A", tableCell1);
+        row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
+        return row1;
+    }
+
     public TableListDictionary MakeSampleTableListDictionary()
     {
         TableListDictionary tableListDictionary = new TableListDictionary();
@@ -69,6 +82,7 @@ public class TableListDictionaryTests
         tableListDictionary.Add(MakeSampleRow2());
         tableListDictionary.Add(MakeSampleRow3());
         tableListDictionary.Add(MakeSampleRow4());
+        tableListDictionary.Add(MakeSampleRow5());
 
         return tableListDictionary;
     }
@@ -108,13 +122,16 @@ public class TableListDictionaryTests
         //Arrange
         TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
         string expected = "C2";
+        int expectedCount = 1;
 
         //Act
         var findResult = tableListDictionary.FindFirst("City", "C", Matcher.findEquals);
         string actual = findResult.Addresses[0];
+        int actualCount = findResult.Addresses.Count();
 
         //Assert
         Assert.AreEqual(actual, expected);
+        Assert.AreEqual(expectedCount, actualCount);
     }
 
     [TestMethod]
