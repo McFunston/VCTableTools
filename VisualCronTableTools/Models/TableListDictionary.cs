@@ -111,7 +111,23 @@ namespace VisualCronTableTools.Models
 
         public FindResponse FindAllBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
         {
-            throw new NotImplementedException();
+            FindResponse findResponse = new FindResponse();
+
+            foreach (var row in ListDictionary)
+            {
+                //if (row[column].Value == searchTerm)
+                if (matcher(searchTerm1, row[column1].Value) && matcher(searchTerm2, row[column2].Value))
+                {
+                    findResponse.Success = true;
+                    List<TableCell> tableCells = row.Values.ToList();
+
+                    findResponse.Rows.Add(tableCells);
+                    findResponse.Addresses.Add(row[column1].ExcelAddress);
+                }
+            };
+            string message = findResponse.Rows.Count.ToString() + " match(es) found.";
+            findResponse.Message = message;
+            return findResponse;
         }
 
         public FindResponse FindFirstBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
