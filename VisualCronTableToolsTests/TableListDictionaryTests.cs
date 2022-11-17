@@ -74,6 +74,19 @@ public class TableListDictionaryTests
         return row1;
     }
 
+    public Dictionary<string, TableCell> MakeSampleRow6()
+    {
+        Dictionary<string, TableCell> row1 = new Dictionary<string, TableCell>();
+        TableCell tableCell1 = new TableCell("Lanark", "A", 1, 7, "City");
+        TableCell tableCell2 = new TableCell("8880", "B", 2, 7, "Population");
+        TableCell tableCell3 = new TableCell("Village", "C", 3, 7, "Municipality Type");
+
+        row1.Add("A", tableCell1);
+        row1.Add("B", tableCell2);
+        row1.Add("C", tableCell3);
+        return row1;
+    }
+
     public TableListDictionary MakeSampleTableListDictionary()
     {
         TableListDictionary tableListDictionary = new TableListDictionary();
@@ -83,6 +96,7 @@ public class TableListDictionaryTests
         tableListDictionary.Add(MakeSampleRow3());
         tableListDictionary.Add(MakeSampleRow4());
         tableListDictionary.Add(MakeSampleRow5());
+        tableListDictionary.Add(MakeSampleRow6());
 
         return tableListDictionary;
     }
@@ -162,6 +176,24 @@ public class TableListDictionaryTests
 
         //Act
         var findResult = tableListDictionary.FindFirstWithout("5930", "B", "C", Matcher.findEquals);
+        string actual = findResult.Addresses[0];
+        int actualCount = findResult.Addresses.Count();
+
+        //Assert
+        Assert.AreEqual(actual, expected);
+        Assert.AreEqual(expectedCount, actualCount);
+    }
+
+    [TestMethod]
+    public void FindAllBoth()
+    {
+        //Arrange
+        TableListDictionary tableListDictionary = MakeSampleTableListDictionary();
+        string expected = "A4";
+        int expectedCount = 2;
+
+        //Act
+        var findResult = tableListDictionary.FindAllBoth("Lanark", "A", "Village","C", Matcher.findEquals);
         string actual = findResult.Addresses[0];
         int actualCount = findResult.Addresses.Count();
 
