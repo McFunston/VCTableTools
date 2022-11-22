@@ -9,7 +9,6 @@
     <None Remove="Tools\" />
     <None Remove="Tools\XLS\" />
     <None Remove="Tools\XLSX\" />
-    <None Remove="Tools\CSV\" />
     <None Remove="Models\" />
     <None Remove="ExcelDataReader" />
     <None Remove="ExcelDataReader.DataSet" />
@@ -23,7 +22,6 @@
     <Folder Include="Tools\" />
     <Folder Include="Tools\XLS\" />
     <Folder Include="Tools\XLSX\" />
-    <Folder Include="Tools\CSV\" />
     <Folder Include="Models\" />
   </ItemGroup>
 </Project>
