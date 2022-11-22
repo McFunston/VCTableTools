@@ -138,7 +138,7 @@ namespace VisualCronTableToolsTests
         public void TestFindFirstExactWithout()
         {
             //Arrange
-            string expected = "Carretera"; //The number of rows that have Canada in Column C and an empty column J
+            string expected = "Carretera"; //The value in Column D in the first row where Column C is Mexico and Column J is empty
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
             string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
@@ -159,7 +159,7 @@ namespace VisualCronTableToolsTests
         public void TestFindFirstInWithout()
         {
             //Arrange
-            string expected = "Canada"; //The number of rows that have Canada in Column C and an empty column J
+            string expected = "Canada"; //The value in Column C where Column K has .5 in it column J is empty
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
             string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
@@ -169,6 +169,27 @@ namespace VisualCronTableToolsTests
             var actualXlsx = TableSearcher.FindFirstInWithout(pathXLSX, "sheet1", "K", ".5", "J").Rows[0][2].Value;
             var actualXls = TableSearcher.FindFirstInWithout(pathXLS, "sheet1", "K", ".5", "J").Rows[0][2].Value;
             var actualCsv = TableSearcher.FindFirstInWithout(pathCSV, "", "K", ".5", "J").Rows[0][2].Value;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
+        [TestMethod]
+        public void TestFindAllBothExact()
+        {
+            //Arrange
+            int expected = 42; //The number of rows that have Canada in Column C and Paseo in Column D
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindAllBothExact(pathXLSX, "sheet1", "C", "Canada", "D", "Paseo").Rows.Count;
+            var actualXls = TableSearcher.FindAllBothExact(pathXLS, "sheet1", "C", "Canada", "D", "Paseo").Rows.Count;
+            var actualCsv = TableSearcher.FindAllBothExact(pathCSV, "", "C", "Canada", "D", "Paseo").Rows.Count;
 
             //Assert
             Assert.AreEqual(expected, actualXlsx);

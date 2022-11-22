@@ -89,6 +89,17 @@ namespace VisualCronTableTools
 
         }
 
+        public static FindResponse FindAllBothExact(string path, string sheetName, string searchColumn1, string searchTerm1, string searchColumn2, string searchTerm2)
+        {
+            XLSTable table = new XLSTable(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAllBoth(searchTerm1, searchColumn1, searchTerm2, searchColumn2, Matcher.findEquals);
+            return findResponse;
+
+        }
+
+
     }
 }
 
