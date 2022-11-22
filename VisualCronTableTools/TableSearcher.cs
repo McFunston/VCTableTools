@@ -36,6 +36,16 @@ namespace VisualCronTableTools
             return findResponse;
 
         }
+
+        public static FindResponse FindFirstIn(string path, string sheetName, string searchColumn, string searchTerm)
+        {
+            XLSTable table = new XLSTable(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindFirst(searchTerm, searchColumn, Matcher.FindIn);
+            return findResponse;
+
+        }
     }
 }
 

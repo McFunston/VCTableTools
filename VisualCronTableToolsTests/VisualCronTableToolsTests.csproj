@@ -22,8 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="TestData\" />
-    <None Remove="TestData\Jobs.xlsx" />
-    <None Remove="TestData\Jobs.xls" />
     <None Remove="TestData\Financial Sample.csv" />
     <None Remove="TestData\Financial Sample.xls" />
     <None Remove="TestData\Financial Sample.xlsx" />
@@ -37,12 +35,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\Jobs.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestData\Jobs.xls">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="TestData\Financial Sample.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

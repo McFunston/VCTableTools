@@ -54,7 +54,7 @@ namespace VisualCronTableToolsTests
         public void TestFindFirstExact()
         {
             //Arrange
-            int expected = 348;
+            int expected = 348; //Row number of first instance of United Arab Emirates
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
             string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
@@ -64,6 +64,27 @@ namespace VisualCronTableToolsTests
             var actualXlsx = TableSearcher.FindFirstExact(pathXLSX, "sheet1", "C", "United Arab Emirates").Rows[0][0].RowNumber;
             var actualXls = TableSearcher.FindFirstExact(pathXLS, "sheet1", "C", "United Arab Emirates").Rows[0][0].RowNumber;
             var actualCsv = TableSearcher.FindFirstExact(pathCSV, "", "C", "United Arab Emirates").Rows[0][0].RowNumber;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
+        [TestMethod]
+        public void TestFindFirstIn()
+        {
+            //Arrange
+            int expected = 17; //Row number of first instance of United States of America
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindFirstIn(pathXLSX, "sheet1", "C", "United").Rows[0][0].RowNumber;
+            var actualXls = TableSearcher.FindFirstIn(pathXLS, "sheet1", "C", "United").Rows[0][0].RowNumber;
+            var actualCsv = TableSearcher.FindFirstIn(pathCSV, "", "C", "United").Rows[0][0].RowNumber;
 
             //Assert
             Assert.AreEqual(expected, actualXlsx);
