@@ -73,17 +73,34 @@ namespace VisualCronTableTools.Tools.XLS
         private DataTable ReadExcel(string path, string sheetName)
         {
             DataTable dataTable;
-            using (var stream = File.Open(path, FileMode.Open, FileAccess.Read))
+            string ext = Path.GetExtension(path);
+            if (ext!=".csv")
             {
-                // Auto-detect format, supports:
-                //  - Binary Excel files (2.0-2003 format; *.xls)
-                //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
-                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                using (var stream = File.Open(path, FileMode.Open, FileAccess.Read))
                 {
-                    var results = reader.AsDataSet().Tables[sheetName];
-                    dataTable = results;
+                    // Auto-detect format, supports:
+                    //  - Binary Excel files (2.0-2003 format; *.xls)
+                    //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
+                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    {
+                        var results = reader.AsDataSet().Tables[sheetName];
+                        dataTable = results;
+                    }
                 }
             }
+            else
+            {
+                using (var stream = File.Open(path, FileMode.Open, FileAccess.Read))
+                {
+
+                    using (var reader = ExcelReaderFactory.CreateCsvReader(stream))
+                    {
+                        var results = reader.AsDataSet().Tables[0];
+                        dataTable = results;
+                    }
+                }
+            }
+
             return dataTable;
         }
     }
