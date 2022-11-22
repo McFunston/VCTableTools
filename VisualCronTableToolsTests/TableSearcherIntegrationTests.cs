@@ -197,6 +197,27 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualCsv);
         }
 
+        [TestMethod]
+        public void TestFindFirstBothExact()
+        {
+            //Arrange
+            string expected = "Carretera"; //The value in column D in the first row where B is Midmarket and C is Mexico 
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindFirstBothExact(pathXLSX, "sheet1", "B", "Midmarket", "C", "Mexico").Rows[0][3].Value;
+            var actualXls = TableSearcher.FindFirstBothExact(pathXLS, "sheet1", "B", "Midmarket", "C", "Mexico").Rows[0][3].Value;
+            var actualCsv = TableSearcher.FindFirstBothExact(pathCSV, "", "B", "Midmarket", "C", "Mexico").Rows[0][3].Value;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
     }
 }
 
