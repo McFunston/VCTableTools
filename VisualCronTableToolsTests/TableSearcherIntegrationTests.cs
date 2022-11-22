@@ -134,6 +134,27 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualCsv);
         }
 
+        [TestMethod]
+        public void TestFindFirstExactWithout()
+        {
+            //Arrange
+            string expected = "Carretera"; //The number of rows that have Canada in Column C and an empty column J
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindFirstExactWithout(pathXLSX, "sheet1", "C", "Mexico", "J").Rows[0][3].Value;
+            var actualXls = TableSearcher.FindFirstExactWithout(pathXLS, "sheet1", "C", "Mexico", "J").Rows[0][3].Value;
+            var actualCsv = TableSearcher.FindFirstExactWithout(pathCSV, "", "C", "Mexico", "J").Rows[0][3].Value;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
     }
 }
 

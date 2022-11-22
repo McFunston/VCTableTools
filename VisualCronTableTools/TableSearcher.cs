@@ -68,6 +68,17 @@ namespace VisualCronTableTools
             return findResponse;
 
         }
+
+        public static FindResponse FindFirstExactWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
+        {
+            XLSTable table = new XLSTable(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindFirstWithout(searchTerm, searchColumn, killColumn, Matcher.findEquals);
+            return findResponse;
+
+        }
+
     }
 }
 
