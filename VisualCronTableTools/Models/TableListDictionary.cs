@@ -20,7 +20,7 @@ namespace VisualCronTableTools.Models
 			ListDictionary = new List<Dictionary<string, TableCell>>();
 		}
 
-		public void Add(Dictionary<string, TableCell> row)
+        public void Add(Dictionary<string, TableCell> row)
 		{
 			ListDictionary.Add(row);
 		}

@@ -92,6 +92,27 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualCsv);
         }
 
+        [TestMethod]
+        public void TestFindAllExactWithout()
+        {
+            //Arrange
+            int expected = 12; //The number of rows that have Canada in Column C and an empty column J
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindAllExactWithout(pathXLSX, "sheet1", "C", "Canada", "J").Rows.Count;
+            var actualXls = TableSearcher.FindAllExactWithout(pathXLS, "sheet1", "C", "Canada", "J").Rows.Count;
+            var actualCsv = TableSearcher.FindAllExactWithout(pathCSV, "", "C", "Canada", "J").Rows.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
     }
 }
 
