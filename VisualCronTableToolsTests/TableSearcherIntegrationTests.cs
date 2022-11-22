@@ -113,6 +113,27 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualCsv);
         }
 
+        [TestMethod]
+        public void TestFindAllInWithout()
+        {
+            //Arrange
+            int expected = 2; //The number of rows that have .5 in Column I and an empty column J
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindAllInWithout(pathXLSX, "sheet1", "I", ".5", "J").Rows.Count;
+            var actualXls = TableSearcher.FindAllInWithout(pathXLS, "sheet1", "I", ".5", "J").Rows.Count;
+            var actualCsv = TableSearcher.FindAllInWithout(pathCSV, "", "I", ".5", "J").Rows.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
     }
 }
 

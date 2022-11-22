@@ -58,6 +58,16 @@ namespace VisualCronTableTools
             return findResponse;
 
         }
+
+        public static FindResponse FindAllInWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
+        {
+            XLSTable table = new XLSTable(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAllWithout(searchTerm, searchColumn, killColumn, Matcher.FindIn);
+            return findResponse;
+
+        }
     }
 }
 
