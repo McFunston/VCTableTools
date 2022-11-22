@@ -14,10 +14,10 @@ namespace VisualCronTableToolsTests
         {
             //Arrange
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-            string path = Path.GetFullPath("TestData/Jobs.xls");
+            string path = Path.GetFullPath("TestData/Financial Sample.xls");
 
             //Act
-            XLSTable xLSTable = new XLSTable(path, "Sheet");
+            XLSTable xLSTable = new XLSTable(path, "Sheet1");
 
             //Assert
             Assert.IsNotNull(xLSTable);
@@ -28,10 +28,10 @@ namespace VisualCronTableToolsTests
         {
             //Arrange
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-            string path = Path.GetFullPath("TestData/Jobs.xls");
+            string path = Path.GetFullPath("TestData/Financial Sample.xls");
 
             //Act
-            XLSTable xLSTable = new XLSTable(path, "Sheet");
+            XLSTable xLSTable = new XLSTable(path, "Sheet1");
             TableListDictionary tableListDictionary = xLSTable.tableListDictionary;
 
             //Assert

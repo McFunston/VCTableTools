@@ -25,7 +25,7 @@ namespace VisualCronTableTools.Models
 			ListDictionary.Add(row);
 		}
 
-        public FindResponse FindAll(string searchTerm, string column, MatcherDelegate matcher)
+        public FindResponse FindAll(string searchTerm, string column, MatcherDelegate matcher)            
         {
             FindResponse findResponse = new FindResponse();
 

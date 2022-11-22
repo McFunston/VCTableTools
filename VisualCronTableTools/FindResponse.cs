@@ -6,7 +6,6 @@ using VisualCronTableTools.Models;
 
 namespace VisualCronTableTools
 {
-    [Serializable()]
     public class FindResponse
     {
         /* A FindResponse will consist of the following properties
