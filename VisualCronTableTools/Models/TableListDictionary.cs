@@ -7,7 +7,7 @@ using VisualCronTableTools.Tools;
 namespace VisualCronTableTools.Models
 {
     
-    public class TableListDictionary: ITableFinder
+    public class TableListDictionary
     {
 		// A list of dictionaries where the list represents the rows, the dictionary keys are the column letters (A, B, C, etc.) and the values are the cell values as strings.
 
