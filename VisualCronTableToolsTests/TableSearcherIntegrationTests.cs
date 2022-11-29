@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml.Serialization;
 using VisualCronTableTools;
 using VisualCronTableTools.Models;
 
@@ -216,6 +217,29 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualXlsx);
             Assert.AreEqual(expected, actualXls);
             Assert.AreEqual(expected, actualCsv);
+        }
+
+        [TestMethod]
+        public void TestGetFromXML()
+        {
+            //Arrange
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            FindResponse findResponse = TableSearcher.FindAllExact(pathXLS, "sheet1", "E", "None");
+            XmlSerializer serializer = new XmlSerializer(typeof(FindResponse));
+            StringWriter stringWriter = new StringWriter();
+            serializer.Serialize(stringWriter, findResponse);
+            string xmlString = stringWriter.ToString();
+            string expected = "2014";
+
+            //Act
+            TableListDictionary tableListDictionary = new TableListDictionary(xmlString);
+            var keys = tableListDictionary.ListDictionary[52].Keys;
+            string actual = tableListDictionary.ListDictionary[52]["Q"].Value;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
         }
 
     }

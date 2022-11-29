@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using VisualCronTableTools.Tools;
+using VisualCronTableTools.Tools.XML;
 
 namespace VisualCronTableTools.Models
 {
@@ -19,6 +20,27 @@ namespace VisualCronTableTools.Models
 		{
 			ListDictionary = new List<Dictionary<string, TableCell>>();
 		}
+
+        public TableListDictionary(string xmlOrCsv)
+        {
+            ListDictionary = new List<Dictionary<string, TableCell>>();
+            if (xmlOrCsv.StartsWith("<?xml version=")) //If it's an xml file
+            {
+                
+                FindResponse findResponse = FindResponseDeserializer.Deserialize(xmlOrCsv);
+                foreach (var row in findResponse.Rows)
+                {
+                    Dictionary<string, TableCell> newRow = new Dictionary<string, TableCell>();
+                    foreach (var cell in row)
+                    {
+                        newRow.Add(cell.ColumnLetter, cell);
+                    }
+                    ListDictionary.Add(newRow);
+                    //newRow.Clear();
+                }
+                var tls = ListDictionary.ToString();
+            }
+        }
 
         public void Add(Dictionary<string, TableCell> row)
 		{
