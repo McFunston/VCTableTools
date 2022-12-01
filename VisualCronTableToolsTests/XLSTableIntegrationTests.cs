@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using VisualCronTableTools.Models;
-using VisualCronTableTools.Tools.XLSX;
 using VisualCronTableTools.Tools.XLS;
 
 namespace VisualCronTableToolsTests
