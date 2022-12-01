@@ -6,6 +6,7 @@ using VisualCronTableTools.Models;
 using DocumentFormat.OpenXml.Spreadsheet;
 using ClosedXML.Excel;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace VisualCronTableTools.Tools.XLS
 {
@@ -33,6 +34,14 @@ namespace VisualCronTableTools.Tools.XLS
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             var dataTable = ReadExcel(path, sheetName);
+            tableListDictionary = GetTableListDictionary(dataTable);
+        }
+
+        public XLSTable(string csvString)
+        {
+            //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            var dataTable = ReadCSVFromString(csvString);
             tableListDictionary = GetTableListDictionary(dataTable);
         }
 
@@ -68,6 +77,25 @@ namespace VisualCronTableTools.Tools.XLS
                 tableDict.Add(rowDict);
             }
                 return tableDict;
+        }
+
+        private DataTable ReadCSVFromString(string csvString)
+        {            
+
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(csvString);
+            writer.Flush();
+            DataTable dataTable;
+
+            using (var reader = ExcelReaderFactory.CreateCsvReader(stream))
+            {
+                var results = reader.AsDataSet().Tables[0];
+                dataTable = results;
+            }
+
+            return dataTable;
+
         }
 
         private DataTable ReadExcel(string path, string sheetName)

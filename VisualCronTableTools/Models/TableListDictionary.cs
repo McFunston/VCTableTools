@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using VisualCronTableTools.Tools;
+using VisualCronTableTools.Tools.XLS;
 using VisualCronTableTools.Tools.XML;
 
 namespace VisualCronTableTools.Models
@@ -37,8 +38,12 @@ namespace VisualCronTableTools.Models
                     }
                     ListDictionary.Add(newRow);
                     //newRow.Clear();
-                }
-                var tls = ListDictionary.ToString();
+                }                
+            }
+            else
+            {
+                XLSTable xLSTable = new XLSTable(xmlOrCsv);
+                ListDictionary = xLSTable.tableListDictionary.ListDictionary;
             }
         }
 

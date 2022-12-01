@@ -242,6 +242,21 @@ namespace VisualCronTableToolsTests
 
         }
 
+        [TestMethod]
+        public void TestGetFromCSVString()
+        {
+            //Arrange
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+            string csvString = File.ReadAllText(pathCSV);
+
+            //Act
+            TableListDictionary tableListDictionary = new TableListDictionary(csvString);
+
+            //Assert
+            Assert.IsNotNull(tableListDictionary);
+        }
+
     }
 }
 
