@@ -6,7 +6,7 @@ using VisualCronTableTools.Tools.XLS;
 namespace VisualCronTableToolsTests
 {
     [TestClass]
-    public class XLSTableIntegrationTests
+    public class TableSourceIntegrationTests
 	{
         [TestMethod]
         public void TestGetWorkSheet()
