@@ -11,7 +11,7 @@ namespace VisualCronTableTools
 	{
 		public static FindResponse FindAllExact(string path, string sheetName, string searchColumn, string searchTerm)
 		{
-			XLSTable table = new XLSTable(path, sheetName);
+			TableSource table = new TableSource(path, sheetName);
 			TableListDictionary tableListDictionary = table.tableListDictionary;
 
 			FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findEquals);
@@ -21,7 +21,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindAllIn(string path, string sheetName, string searchColumn, string searchTerm)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.FindIn);
@@ -31,7 +31,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindFirstExact(string path, string sheetName, string searchColumn, string searchTerm)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindFirst(searchTerm, searchColumn, Matcher.findEquals);
@@ -41,7 +41,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindFirstIn(string path, string sheetName, string searchColumn, string searchTerm)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindFirst(searchTerm, searchColumn, Matcher.FindIn);
@@ -51,7 +51,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindAllExactWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindAllWithout(searchTerm, searchColumn, killColumn, Matcher.findEquals);
@@ -61,7 +61,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindAllInWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindAllWithout(searchTerm, searchColumn, killColumn, Matcher.FindIn);
@@ -71,7 +71,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindFirstExactWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindFirstWithout(searchTerm, searchColumn, killColumn, Matcher.findEquals);
@@ -81,7 +81,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindFirstInWithout(string path, string sheetName, string searchColumn, string searchTerm, string killColumn)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindFirstWithout(searchTerm, searchColumn, killColumn, Matcher.FindIn);
@@ -91,7 +91,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindAllBothExact(string path, string sheetName, string searchColumn1, string searchTerm1, string searchColumn2, string searchTerm2)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindAllBoth(searchTerm1, searchColumn1, searchTerm2, searchColumn2, Matcher.findEquals);
@@ -101,7 +101,7 @@ namespace VisualCronTableTools
 
         public static FindResponse FindFirstBothExact(string path, string sheetName, string searchColumn1, string searchTerm1, string searchColumn2, string searchTerm2)
         {
-            XLSTable table = new XLSTable(path, sheetName);
+            TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
             FindResponse findResponse = tableListDictionary.FindFirstBoth(searchTerm1, searchColumn1, searchTerm2, searchColumn2, Matcher.findEquals);

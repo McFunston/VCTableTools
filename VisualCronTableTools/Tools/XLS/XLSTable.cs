@@ -10,7 +10,7 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace VisualCronTableTools.Tools.XLS
 {
-	public class XLSTable
+	public class TableSource
 	{
         public TableListDictionary tableListDictionary { get; set; }
 
@@ -29,7 +29,7 @@ namespace VisualCronTableTools.Tools.XLS
             return colLetter;
         }
 
-        public XLSTable(string path, string sheetName)
+        public TableSource(string path, string sheetName)
         {
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
@@ -37,7 +37,7 @@ namespace VisualCronTableTools.Tools.XLS
             tableListDictionary = GetTableListDictionary(dataTable);
         }
 
-        public XLSTable(string csvString)
+        public TableSource(string csvString)
         {
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 

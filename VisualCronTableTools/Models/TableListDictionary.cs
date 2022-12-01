@@ -42,7 +42,7 @@ namespace VisualCronTableTools.Models
             }
             else
             {
-                XLSTable xLSTable = new XLSTable(xmlOrCsv);
+                TableSource xLSTable = new TableSource(xmlOrCsv);
                 ListDictionary = xLSTable.tableListDictionary.ListDictionary;
             }
         }

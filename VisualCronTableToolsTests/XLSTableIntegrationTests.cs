@@ -17,7 +17,7 @@ namespace VisualCronTableToolsTests
             string path = Path.GetFullPath("TestData/Financial Sample.xls");
 
             //Act
-            XLSTable xLSTable = new XLSTable(path, "Sheet1");
+            TableSource xLSTable = new TableSource(path, "Sheet1");
 
             //Assert
             Assert.IsNotNull(xLSTable);
@@ -31,7 +31,7 @@ namespace VisualCronTableToolsTests
             string path = Path.GetFullPath("TestData/Financial Sample.xls");
 
             //Act
-            XLSTable xLSTable = new XLSTable(path, "Sheet1");
+            TableSource xLSTable = new TableSource(path, "Sheet1");
             TableListDictionary tableListDictionary = xLSTable.tableListDictionary;
 
             //Assert
