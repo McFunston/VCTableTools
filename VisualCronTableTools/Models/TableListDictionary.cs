@@ -178,7 +178,22 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
+        public FindResponse ReturnAll()
+        {
+            FindResponse findResponse = new FindResponse();
 
+            foreach (var row in ListDictionary)
+            {
+                findResponse.Success = true;
+                List<TableCell> tableCells = row.Values.ToList();
+
+                findResponse.Rows.Add(tableCells);
+                
+            }
+            string message = findResponse.Rows.Count.ToString() + " rows found.";
+            findResponse.Message = message;
+            return findResponse;
+        }
     }
 }
 
