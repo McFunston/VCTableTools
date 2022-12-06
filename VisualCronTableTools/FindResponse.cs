@@ -27,6 +27,7 @@ namespace VisualCronTableTools
 			Rows = rows;
 			Addresses = addresses;
 		}
+
 		public bool Success { get; set; }        
         public string Message { get; set; }
         [XmlArrayItem("Row")]
