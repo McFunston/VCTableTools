@@ -12,11 +12,11 @@ namespace VisualCronTableTools
 			Success: True if found, False if not
 			Message: A string describing the findings ("Two items found")
 			Rows: A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
-			Cells: A dictionary of the specifically found cells */
+			Addresses: A list of the specifically found cells */
 
-		public FindResponse()
+        public FindResponse()
 		{
-			Rows = new List<List<TableCell>>();
+            Rows = new List<List<TableCell>>();
 			Addresses = new List<string>();
 		}
 
