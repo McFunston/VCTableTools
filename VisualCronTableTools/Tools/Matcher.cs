@@ -4,7 +4,7 @@ namespace VisualCronTableTools.Tools
     public static class Matcher
     {
         /* Used as the matcher delegate in TableListDictionary */
-        public static bool FindIn(string searchTerm, string itemToSearch)
+        public static bool findIn(string searchTerm, string itemToSearch)
         {
             bool found = false;
 

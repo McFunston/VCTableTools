@@ -15,8 +15,8 @@ namespace VisualCronTableToolsTests
             string itemToSearchFalse = "From here to there";
 
             //Act
-            bool expectedTrue = Matcher.FindIn(searchTerm, itemToSearchTrue);
-            bool expectedFalse = Matcher.FindIn(searchTerm, itemToSearchFalse);
+            bool expectedTrue = Matcher.findIn(searchTerm, itemToSearchTrue);
+            bool expectedFalse = Matcher.findIn(searchTerm, itemToSearchFalse);
 
             //Assert
             Assert.IsTrue(expectedTrue);

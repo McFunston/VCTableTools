@@ -24,7 +24,7 @@ namespace VisualCronTableTools
             TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
-            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.FindIn);
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findIn);
             return findResponse;
 
         }
@@ -44,7 +44,7 @@ namespace VisualCronTableTools
             TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
-            FindResponse findResponse = tableListDictionary.FindFirst(searchTerm, searchColumn, Matcher.FindIn);
+            FindResponse findResponse = tableListDictionary.FindFirst(searchTerm, searchColumn, Matcher.findIn);
             return findResponse;
 
         }
@@ -64,7 +64,7 @@ namespace VisualCronTableTools
             TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
-            FindResponse findResponse = tableListDictionary.FindAllWithout(searchTerm, searchColumn, killColumn, Matcher.FindIn);
+            FindResponse findResponse = tableListDictionary.FindAllWithout(searchTerm, searchColumn, killColumn, Matcher.findIn);
             return findResponse;
 
         }
@@ -84,7 +84,7 @@ namespace VisualCronTableTools
             TableSource table = new TableSource(path, sheetName);
             TableListDictionary tableListDictionary = table.tableListDictionary;
 
-            FindResponse findResponse = tableListDictionary.FindFirstWithout(searchTerm, searchColumn, killColumn, Matcher.FindIn);
+            FindResponse findResponse = tableListDictionary.FindFirstWithout(searchTerm, searchColumn, killColumn, Matcher.findIn);
             return findResponse;
 
         }
