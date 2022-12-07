@@ -39,6 +39,23 @@ namespace VisualCronTableToolsTests
             Assert.IsTrue(expectedTrue);
             Assert.IsFalse(expectedFalse);
         }
+
+        [TestMethod]
+        public void TestStartsWith()
+        {
+            //Arrange
+            string searchTerm = "42";
+            string itemToSearchTrue = "42554654";
+            string itemToSearchFalse = "-42554654";
+
+            //Act
+            bool expectedTrue = Matcher.findStartsWith(searchTerm, itemToSearchTrue);
+            bool expectedFalse = Matcher.findStartsWith(searchTerm, itemToSearchFalse);
+
+            //Assert
+            Assert.IsTrue(expectedTrue);
+            Assert.IsFalse(expectedFalse);
+        }
     }
 }
 
