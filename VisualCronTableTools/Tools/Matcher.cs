@@ -6,47 +6,22 @@ namespace VisualCronTableTools.Tools
         /* Used as the matcher delegate in TableListDictionary */
         public static bool findIn(string searchTerm, string itemToSearch)
         {
-            bool found = false;
-
-            if (itemToSearch.Contains(searchTerm))
-            {
-                found = true;
-            }
-
-            return found;
+            return itemToSearch.Contains(searchTerm);
         }
 
         public static bool findEquals(string searchTerm, string itemToSearch)
         {
-            bool found = false;
-
-            if (itemToSearch.Equals(searchTerm))
-            {
-                found = true;
-            }
-            return found;
+            return itemToSearch.Equals(searchTerm);
         }
 
         public static bool findStartsWith(string searchTerm, string itemToSearch)
         {
-            bool found = false;
-
-            if (itemToSearch.StartsWith(searchTerm))
-            {
-                found = true;
-            }
-            return found;
+            return itemToSearch.StartsWith(searchTerm);
         }
 
         public static bool findEndsWith(string searchTerm, string itemToSearch)
         {
-            bool found = false;
-
-            if (itemToSearch.EndsWith(searchTerm))
-            {
-                found = true;
-            }
-            return found;
+            return itemToSearch.EndsWith(searchTerm);
         }
     }
 }
