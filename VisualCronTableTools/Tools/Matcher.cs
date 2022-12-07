@@ -37,6 +37,17 @@ namespace VisualCronTableTools.Tools
             }
             return found;
         }
+
+        public static bool findEndsWith(string searchTerm, string itemToSearch)
+        {
+            bool found = false;
+
+            if (itemToSearch.EndsWith(searchTerm))
+            {
+                found = true;
+            }
+            return found;
+        }
     }
 }
 
