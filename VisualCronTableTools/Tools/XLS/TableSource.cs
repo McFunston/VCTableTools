@@ -7,6 +7,8 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using ClosedXML.Excel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
+using System.Collections.Specialized;
+using VisualCronTableTools.Tools.XML;
 
 namespace VisualCronTableTools.Tools.XLS
 {
@@ -37,12 +39,19 @@ namespace VisualCronTableTools.Tools.XLS
             tableListDictionary = GetTableListDictionary(dataTable);
         }
 
-        public TableSource(string csvString)
+        public TableSource(string xmlOrCsv)
         {
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-            var dataTable = ReadCSVFromString(csvString);
-            tableListDictionary = GetTableListDictionary(dataTable);
+            if (xmlOrCsv.StartsWith("<?xml version=")) //If it's xml data
+            {
+                tableListDictionary = GetTableListDictionary(xmlOrCsv);
+            }
+            else //If it's coma separated data
+            {
+                var dataTable = ReadCSVFromString(xmlOrCsv);
+                tableListDictionary = GetTableListDictionary(dataTable);                
+            }               
+            
         }
 
         private TableListDictionary GetTableListDictionary(DataTable sheet)
@@ -79,6 +88,23 @@ namespace VisualCronTableTools.Tools.XLS
                 return tableDict;
         }
 
+        private TableListDictionary GetTableListDictionary(string xml)
+        {
+            TableListDictionary tableListDictionary = new TableListDictionary();
+            FindResponse findResponse = FindResponseDeserializer.Deserialize(xml);
+            foreach (var row in findResponse.Rows)
+            {
+                Dictionary<string, TableCell> newRow = new Dictionary<string, TableCell>();
+                foreach (var cell in row)
+                {
+                    newRow.Add(cell.ColumnLetter, cell);
+                }
+                tableListDictionary.Add(newRow);
+                //newRow.Clear();                
+            }
+            return tableListDictionary;
+        }
+
         private DataTable ReadCSVFromString(string csvString)
         {            
 
@@ -97,6 +123,7 @@ namespace VisualCronTableTools.Tools.XLS
             return dataTable;
 
         }
+               
 
         private DataTable ReadExcel(string path, string sheetName)
         {

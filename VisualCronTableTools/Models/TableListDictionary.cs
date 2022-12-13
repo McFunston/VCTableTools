@@ -18,33 +18,8 @@ namespace VisualCronTableTools.Models
         public delegate bool MatcherDelegate(string searchTerm, string itemToSearch);
 
         public TableListDictionary()
-		{
-			ListDictionary = new List<Dictionary<string, TableCell>>();
-		}
-
-        public TableListDictionary(string xmlOrCsv)
         {
             ListDictionary = new List<Dictionary<string, TableCell>>();
-            if (xmlOrCsv.StartsWith("<?xml version=")) //If it's an xml file
-            {
-                
-                FindResponse findResponse = FindResponseDeserializer.Deserialize(xmlOrCsv);
-                foreach (var row in findResponse.Rows)
-                {
-                    Dictionary<string, TableCell> newRow = new Dictionary<string, TableCell>();
-                    foreach (var cell in row)
-                    {
-                        newRow.Add(cell.ColumnLetter, cell);
-                    }
-                    ListDictionary.Add(newRow);
-                    //newRow.Clear();
-                }                
-            }
-            else
-            {
-                TableSource xLSTable = new TableSource(xmlOrCsv);
-                ListDictionary = xLSTable.tableListDictionary.ListDictionary;
-            }
         }
 
         public void Add(Dictionary<string, TableCell> row)

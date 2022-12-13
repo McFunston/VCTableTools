@@ -19,6 +19,16 @@ namespace VisualCronTableTools
 
 		}
 
+        public static FindResponse FindExact(string tableString, string searchColumn, string searchTerm)
+        {
+            TableSource table = new TableSource(tableString);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findEquals);
+            return findResponse;
+
+        }
+
         public static FindResponse FindIn(string path, string sheetName, string searchColumn, string searchTerm)
         {
             TableSource table = new TableSource(path, sheetName);
