@@ -1,27 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="ClosedXML" />
-    <None Remove="Tools\" />
-    <None Remove="Tools\XLS\" />
-    <None Remove="Models\" />
-    <None Remove="ExcelDataReader" />
-    <None Remove="ExcelDataReader.DataSet" />
-    <None Remove="Tools\XML\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.97.0" />
-    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tools\" />
-    <Folder Include="Tools\XLS\" />
-    <Folder Include="Models\" />
-    <Folder Include="Tools\XML\" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="ClosedXML" />
+		<None Remove="Tools\" />
+		<None Remove="Tools\XLS\" />
+		<None Remove="Models\" />
+		<None Remove="ExcelDataReader" />
+		<None Remove="ExcelDataReader.DataSet" />
+		<None Remove="Tools\XML\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ClosedXML" Version="0.97.0" />
+		<PackageReference Include="ExcelDataReader" Version="3.6.0" />
+		<PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Tools\" />
+		<Folder Include="Tools\XLS\" />
+		<Folder Include="Models\" />
+		<Folder Include="Tools\XML\" />
+	</ItemGroup>
+	<ItemGroup>
+		<InternalsVisibleTo Include="VisualCronTableToolsTests" />
+	</ItemGroup>
 </Project>

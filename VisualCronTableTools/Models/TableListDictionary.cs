@@ -9,25 +9,25 @@ using VisualCronTableTools.Tools.XML;
 namespace VisualCronTableTools.Models
 {
     
-    public class TableListDictionary
+    internal class TableListDictionary
     {
-		// A list of dictionaries where the list represents the rows, the dictionary keys are the column letters (A, B, C, etc.) and the values are the cell values as strings.
+        // A list of dictionaries where the list represents the rows, the dictionary keys are the column letters (A, B, C, etc.) and the values are the cell values as strings.
 
-        public List<Dictionary<string, TableCell>> ListDictionary { get; set; }
+        internal List<Dictionary<string, TableCell>> ListDictionary { get; set; }
 
-        public delegate bool MatcherDelegate(string searchTerm, string itemToSearch);
+        internal delegate bool MatcherDelegate(string searchTerm, string itemToSearch);
 
-        public TableListDictionary()
+        internal TableListDictionary()
         {
             ListDictionary = new List<Dictionary<string, TableCell>>();
         }
 
-        public void Add(Dictionary<string, TableCell> row)
+        internal void Add(Dictionary<string, TableCell> row)
 		{
 			ListDictionary.Add(row);
 		}
 
-        public FindResponse FindAll(string searchTerm, string column, MatcherDelegate matcher)            
+        internal FindResponse FindAll(string searchTerm, string column, MatcherDelegate matcher)            
         {
             FindResponse findResponse = new FindResponse();
 
@@ -48,7 +48,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse FindFirst(string searchTerm, string column, MatcherDelegate matcher)
+        internal FindResponse FindFirst(string searchTerm, string column, MatcherDelegate matcher)
         {
             FindResponse findResponse = new FindResponse();
 
@@ -69,7 +69,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse FindAllWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
+        internal FindResponse FindAllWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
         {
             FindResponse findResponse = new FindResponse();
 
@@ -90,7 +90,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse FindFirstWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
+        internal FindResponse FindFirstWithout(string searchTerm, string column, string killColumn, MatcherDelegate matcher)
         {
             FindResponse findResponse = new FindResponse();
 
@@ -111,7 +111,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse FindAllBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
+        internal FindResponse FindAllBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
         {
             FindResponse findResponse = new FindResponse();
 
@@ -132,7 +132,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse FindFirstBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
+        internal FindResponse FindFirstBoth(string searchTerm1, string column1, string searchTerm2, string column2, MatcherDelegate matcher)
         {
             FindResponse findResponse = new FindResponse();
 
@@ -153,7 +153,7 @@ namespace VisualCronTableTools.Models
             return findResponse;
         }
 
-        public FindResponse ReturnAll()
+        internal FindResponse ReturnAll()
         {
             FindResponse findResponse = new FindResponse();
 

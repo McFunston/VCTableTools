@@ -12,7 +12,7 @@ using VisualCronTableTools.Tools.XML;
 
 namespace VisualCronTableTools.Tools.XLS
 {
-	public class TableSource
+    internal class TableSource
 	{
         public TableListDictionary tableListDictionary { get; set; }
 
@@ -31,7 +31,7 @@ namespace VisualCronTableTools.Tools.XLS
             return colLetter;
         }
 
-        public TableSource(string path, string sheetName)
+        internal TableSource(string path, string sheetName)
         {
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
@@ -39,7 +39,7 @@ namespace VisualCronTableTools.Tools.XLS
             tableListDictionary = GetTableListDictionary(dataTable);
         }
 
-        public TableSource(string xmlOrCsv)
+        internal TableSource(string xmlOrCsv)
         {
             //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             if (xmlOrCsv.StartsWith("<?xml version=")) //If it's xml data

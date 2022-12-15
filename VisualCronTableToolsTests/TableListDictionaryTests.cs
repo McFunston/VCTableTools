@@ -89,7 +89,7 @@ public class TableListDictionaryTests
         return row1;
     }
 
-    public TableListDictionary MakeSampleTableListDictionary()
+    internal TableListDictionary MakeSampleTableListDictionary()
     {
         TableListDictionary tableListDictionary = new TableListDictionary();
 

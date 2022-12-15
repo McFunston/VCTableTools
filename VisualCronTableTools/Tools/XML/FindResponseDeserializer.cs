@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 namespace VisualCronTableTools.Tools.XML
 {
-	public static class FindResponseDeserializer
+    internal static class FindResponseDeserializer
 	{
 
 		public static FindResponse Deserialize(string xml)
