@@ -39,6 +39,15 @@ namespace VisualCronTableTools
 
         }
 
+        public static FindResponse FindIn(string tableString, string searchColumn, string searchTerm)
+        {
+            TableSource table = new TableSource(tableString);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findIn);
+            return findResponse;
+
+        }
 
 
     }
