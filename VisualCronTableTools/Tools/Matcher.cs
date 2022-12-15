@@ -23,6 +23,11 @@ namespace VisualCronTableTools.Tools
         {
             return itemToSearch.EndsWith(searchTerm);
         }
+
+        internal static bool findDoesNotContain(string searchTerm, string itemToSearch)
+        {
+            return !itemToSearch.Contains(searchTerm);
+        }
     }
 }
 
