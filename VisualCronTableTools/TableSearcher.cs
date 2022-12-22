@@ -49,6 +49,24 @@ namespace VisualCronTableTools
 
         }
 
+        public static FindResponse FindStartsWith(string path, string sheetName, string searchColumn, string searchTerm)
+        {
+            TableSource table = new TableSource(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findStartsWith);
+            return findResponse;
+        }
+
+        public static FindResponse FindStartsWith(string tableString, string searchColumn, string searchTerm)
+        {
+            TableSource table = new TableSource(tableString);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
+
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findStartsWith);
+            return findResponse;
+        }
+
 
     }
 }

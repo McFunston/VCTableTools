@@ -28,12 +28,12 @@ namespace VisualCronTableTools
 			Addresses = addresses;
 		}
 
-		public bool Success { get; internal set; }        
-        public string Message { get; internal set; }
+		public bool Success { get; set; }        
+        public string Message { get; set; }
         [XmlArrayItem("Row")]
-        public List<List<TableCell>> Rows { get; internal set; }
+        public List<List<TableCell>> Rows { get; set; }
         [XmlArrayItem("Address")]
-        public List<string> Addresses { get; internal set; }
+        public List<string> Addresses { get; set; }
 
         public override string ToString()
 		{

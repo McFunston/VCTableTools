@@ -51,6 +51,26 @@ namespace VisualCronTableToolsTests
             Assert.AreEqual(expected, actualCsv);
         }
 
+        public void TestFindStartsWith()
+        {
+            //Arrange
+            int expected = 105;
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string pathXLSX = Path.GetFullPath("TestData/Financial Sample.xlsx");
+            string pathXLS = Path.GetFullPath("TestData/Financial Sample.xls");
+            string pathCSV = Path.GetFullPath("TestData/Financial Sample.csv");
+
+            //Act
+            var actualXlsx = TableSearcher.FindStartsWith(pathXLSX, "sheet1", "P", "Dec").Rows.Count;
+            var actualXls = TableSearcher.FindStartsWith(pathXLS, "sheet1", "P", "Dec").Rows.Count;
+            var actualCsv = TableSearcher.FindStartsWith(pathCSV, "", "P", "Dec").Rows.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actualXlsx);
+            Assert.AreEqual(expected, actualXls);
+            Assert.AreEqual(expected, actualCsv);
+        }
+
     }
 }
 
