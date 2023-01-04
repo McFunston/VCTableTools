@@ -17,10 +17,7 @@ namespace VisualCronTableTools
 			Rows: A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
 			Addresses: A list of the specifically found cells */
 
-		/// <summary>
-		/// Basic constructor for FindResponse.
-		/// </summary>
-        public FindResponse()
+        internal FindResponse()
 		{
             Rows = new List<List<TableCell>>();
 			Addresses = new List<string>();
