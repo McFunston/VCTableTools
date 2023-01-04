@@ -7,17 +7,28 @@ using static VisualCronTableTools.Models.TableListDictionary;
 
 namespace VisualCronTableTools
 {
-	public static class TableSearcher
-	{
-		public static FindResponse FindExact(string path, string sheetName, string searchColumn, string searchTerm)
-		{
-			TableSource table = new TableSource(path, sheetName);
-			TableListDictionary tableListDictionary = table.tableListDictionary;
+    /// <summary>
+    /// Class for searching through tables. This is the class that should be accessed through VisualCron.
+    /// </summary>
+    public static class TableSearcher
+    {
+        /// <summary>
+        /// Find an exact match in a given column of a given Excel or CSV file.
+        /// </summary>
+        /// <param name="path">The path of the Excel or CSV file.</param>
+        /// <param name="sheetName">The name of the sheet to be searched. Ignored if the file is a CSV file.</param>
+        /// <param name="searchColumn">The column letter to be searched.</param>
+        /// <param name="searchTerm">A string that must be matched exactly to result in a 'hit'.</param>
+        /// <returns></returns>
+        public static FindResponse FindExact(string path, string sheetName, string searchColumn, string searchTerm)
+        {
+            TableSource table = new TableSource(path, sheetName);
+            TableListDictionary tableListDictionary = table.tableListDictionary;
 
-			FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findEquals);
-			return findResponse;
+            FindResponse findResponse = tableListDictionary.FindAll(searchTerm, searchColumn, Matcher.findEquals);
+            return findResponse;
 
-		}
+        }
 
         public static FindResponse FindExact(string tableString, string searchColumn, string searchTerm)
         {
