@@ -2,7 +2,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Description>A library for interacting with Excel and CSV files in VisualCron.</Description>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	  <DocumentationFile>bin\Debug\netstandard2.0\VisualCronTableTools.xml</DocumentationFile>

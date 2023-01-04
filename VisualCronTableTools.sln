@@ -28,4 +28,7 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09570750-62DE-4E04-98EC-0DEBC8AF1CD1}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = A library for interacting with Excel and CSV files in VisualCron.
+	EndGlobalSection
 EndGlobal
