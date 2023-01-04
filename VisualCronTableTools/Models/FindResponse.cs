@@ -7,7 +7,7 @@ using VisualCronTableTools.Models;
 namespace VisualCronTableTools
 {
 	/// <summary>
-	/// The return of any TableSearcher method.
+	/// The return of any TableSearcher method. This can either be returned as XML within VisualCron in which case it can be searched again, or as a simple list of the cell locations.
 	/// </summary>
     public class FindResponse
     {
@@ -49,7 +49,7 @@ namespace VisualCronTableTools
         [XmlArrayItem("Address")]
         public List<string> Addresses { get; set; }
 
-        public override string ToString() //Overide for Visualcron to return just a list of the addresses where the searched value was found.
+        public override string ToString() //Overide for Visualcron to return just a list of the addresses where the searched value was found if 'ToString representation of output' is chosen in Output tab.
 		{
 			string addressesString = string.Join(",", Addresses);
 			return addressesString;
