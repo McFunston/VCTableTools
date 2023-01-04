@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Data;
-using ExcelDataReader;
-using System.IO;
-using VisualCronTableTools.Models;
-using DocumentFormat.OpenXml.Spreadsheet;
-using ClosedXML.Excel;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using System.Collections.Specialized;
+using System.Data;
+using System.IO;
+using ExcelDataReader;
+using VisualCronTableTools.Models;
 using VisualCronTableTools.Tools.XML;
 
 namespace VisualCronTableTools.Tools.XLS
