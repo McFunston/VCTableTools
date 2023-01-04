@@ -3,6 +3,9 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <DocumentationFile>bin\Debug\netstandard2.0\VisualCronTableTools.xml</DocumentationFile>
+	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="ClosedXML" />
 		<None Remove="Tools\" />

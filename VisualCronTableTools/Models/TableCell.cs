@@ -4,7 +4,9 @@ using System.Xml.Serialization;
 
 namespace VisualCronTableTools.Models
 {
-
+    /// <summary>
+    /// VisualCronTableTools' representation of a 'cell'.
+    /// </summary>
     public class TableCell
     {
         public string Value { get; set; }
