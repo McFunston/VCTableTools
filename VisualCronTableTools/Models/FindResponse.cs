@@ -17,19 +17,15 @@ namespace VisualCronTableTools
 			Rows: A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
 			Addresses: A list of the specifically found cells */
 
+		/// <summary>
+		/// Basic constructor for FindResponse.
+		/// </summary>
         public FindResponse()
 		{
             Rows = new List<List<TableCell>>();
 			Addresses = new List<string>();
 		}
 
-		public FindResponse(bool success, string message, List<List<TableCell>> rows, List<string> addresses)
-		{
-			Success = success;
-			Message = message;
-			Rows = rows;
-			Addresses = addresses;
-		}
 		/// <summary>
 		/// A boolean representing the success of the search. True means at least 1 'hit', and False means none.
 		/// </summary>
@@ -49,7 +45,11 @@ namespace VisualCronTableTools
         [XmlArrayItem("Address")]
         public List<string> Addresses { get; set; }
 
-        public override string ToString() //Overide for Visualcron to return just a list of the addresses where the searched value was found if 'ToString representation of output' is chosen in Output tab.
+        /// <summary>
+        /// Overide for Visualcron to return just a list of the addresses where the searched value was found if 'ToString representation of output' is chosen in Output tab.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
 		{
 			string addressesString = string.Join(",", Addresses);
 			return addressesString;
