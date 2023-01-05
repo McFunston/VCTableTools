@@ -26,7 +26,7 @@ namespace VisualCronTableTools
 			return row;
 		}
         /// <summary>
-        /// Extracts the column letter from an Excel address
+        /// Extracts the column letter from an Excel address.
         /// </summary>
         /// <param name="address">A string representation of an Excel address (ie. A21)</param>
         /// <returns>The column letter.</returns>

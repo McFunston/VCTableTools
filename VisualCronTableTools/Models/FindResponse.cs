@@ -32,7 +32,7 @@ namespace VisualCronTableTools
 		/// </summary>
         public string Message { get; set; }
         /// <summary>
-        /// A list of dictionaries with the contents of the rows where the searched value was found ("A9": "Boston", "B9": "Massachusetts" for example)
+        /// A list of a list of TableCells with the contents of the rows where the searched value was found.
         /// </summary>
         [XmlArrayItem("Row")]
         public List<List<TableCell>> Rows { get; set; }

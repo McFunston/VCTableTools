@@ -9,7 +9,7 @@ namespace VisualCronTableTools
 	public static class TableHandler
 	{
 		/// <summary>
-		/// Gets all of the data from a sheet in an Excel or CSV file
+		/// Gets all of the data from a sheet in an Excel or CSV file.
 		/// </summary>
 		/// <param name="path">Path to the Excel or CSV file.</param>
 		/// <param name="sheet">The 'Sheet' in the Excel file to be returned. Ignored if the file is CSV.</param>
