@@ -44,7 +44,7 @@ With the exception of the two ExcelAddressManager methods all of the methods ret
 | -------- | ---------------- | ----------- |
 | Success | bool | A boolean representing the success of the search. True means at least 1 'hit', and False means none. |
 | Message | string | A human readable response message (ie. 'Two instances found') |
-| Rows | List<List<TableCell>> | A list of a list of TableCells with the contents of the rows where the searched value was found. |
+| Rows | List<List\<TableCell\>> | A list of a list of TableCells with the contents of the rows where the searched value was found. |
 | Addresses | List<string> | A list of the cell locations in Excel format (eg. "A1", "D3") where the searched value was found. |
 
 ### TableCell Properties
