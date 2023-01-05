@@ -21,6 +21,7 @@ VCTableTools is a Dotnet Standard 2.0 assembly meant to add functions for workin
 | ExcelAddressManager | GetRow | Extracts the row number as a string from an Excel format address. For example 'A12' would give you '12' |
 | ExcelAddressManager | GetColumn | Extracts the column letter from an Excel address. For example 'A' from 'A12'. |
 
+## TableSearcher Methods
 The TableSearcher methods each have an additional overload. Version 1 is meant for loading data from a standalone file, whereas version 2 is meant for using a previous output as the input for a new search.
 ### Version 1
 | Parameter | Description |
