@@ -1,6 +1,6 @@
 # VCTableTools
 
-VCTableTools is a Dotnet Standard 2.0 asembly meant to add functions for working with table data from within VisualCron. While VisualCron does have some very good tools for working with table data they are somewhat limited in scope. Currently VCTableTools can only be used for searching within table data from Excel or comma delimited files, but this may change in the future.
+VCTableTools is a Dotnet Standard 2.0 assembly meant to add functions for working with table data from within VisualCron. While VisualCron does have some very good tools for working with table data they are somewhat limited in scope. Currently VCTableTools can only be used for searching within table data from Excel or comma delimited files, but this may change in the future.
 
 ## Features
 
